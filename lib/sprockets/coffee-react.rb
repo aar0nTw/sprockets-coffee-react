@@ -24,9 +24,9 @@ module Sprockets
     end
 
     def self.install(environment = ::Sprockets)
-      environment.register_mime_type 'application/javascript', extensions: ['.cjsx', '.js.cjsx'], charset: :default
-      environment.register_preprocessor 'application/javascript', Sprockets::CoffeeReact
-      environment.register_postprocessor 'application/javascript', Sprockets::CoffeeReactPostprocessor
+      env.register_mime_type 'text/cjsx', extensions: ['.cjsx'], charset: :default
+      env.register_preprocessor 'text/cjsx', Sprockets::CoffeeReact
+      env.register_postprocessor 'text/cjsx', Sprockets::CoffeeReactPostprocessor
     end
   end
 end

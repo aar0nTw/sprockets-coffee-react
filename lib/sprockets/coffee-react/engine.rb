@@ -15,9 +15,9 @@ if defined?(Rails)
         end
 
         def configure_env(env)
-          env.register_mime_type 'application/javascript', extensions: ['.cjsx', '.js.cjsx'], charset: :default
-          env.register_preprocessor 'application/javascript', Sprockets::CoffeeReact
-          env.register_postprocessor 'application/javascript', Sprockets::CoffeeReactPostprocessor
+          env.register_mime_type 'text/cjsx', extensions: ['.cjsx'], charset: :default
+          env.register_preprocessor 'text/cjsx', Sprockets::CoffeeReact
+          env.register_postprocessor 'text/cjsx', Sprockets::CoffeeReactPostprocessor
         end
       end
     end
