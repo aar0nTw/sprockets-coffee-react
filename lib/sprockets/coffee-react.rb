@@ -9,6 +9,9 @@ module Sprockets
     CJSX_EXTENSION = /\.(:?cjsx|coffee)[^\/]*?$/
     CJSX_PRAGMA = /^\s*#[ \t]*@cjsx/i
 
+    def self.call(input)
+    end
+
     def prepare
     end
 
@@ -21,10 +24,9 @@ module Sprockets
     end
 
     def self.install(environment = ::Sprockets)
+      environment.register_mime_type 'application/javascript', extensions: ['.cjsx', '.js.cjsx'], charset: :default
       environment.register_preprocessor 'application/javascript', Sprockets::CoffeeReact
       environment.register_postprocessor 'application/javascript', Sprockets::CoffeeReactPostprocessor
-      environment.register_engine '.cjsx', Sprockets::CoffeeReactScript
-      environment.register_engine '.js.cjsx', Sprockets::CoffeeReactScript
     end
   end
 end

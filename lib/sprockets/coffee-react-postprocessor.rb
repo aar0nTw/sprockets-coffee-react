@@ -5,6 +5,9 @@ require 'coffee-react'
 module Sprockets
   class CoffeeReactPostprocessor < Tilt::Template
 
+    def self.call(input)
+    end
+
     def prepare
     end
 
