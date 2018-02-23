@@ -6,6 +6,7 @@ module Sprockets
   class CoffeeReactPostprocessor < Tilt::Template
 
     def self.call(input)
+      { data: ::CoffeeReact.jstransform(input[:data]) }
     end
 
     def prepare
